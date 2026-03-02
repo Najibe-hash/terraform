@@ -1,5 +1,5 @@
 resource "aws_security_group" "sg_ucad" {
-  name        = "allow_ssh_http_unique_v2"
+  name        = "allow_ssh_http_unique_visticot"
   description = "Autoriser SSH et HTTP"
 
   ingress {
