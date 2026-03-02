@@ -34,7 +34,12 @@ resource "aws_instance" "ec2_visticot" {
               sudo apt update -y
               sudo apt install apache2 -y
               sudo systemctl start apache2
+              sudo systemctl enable apache2
               EOF
 
-  tags = { Name = "EC2-ton-nom" }
+  tags = { Name = "EC2-visticot" }
+}
+
+output "ec2_public_ip" {
+  value = aws_instance.ec2_visticot.public_ip
 }
