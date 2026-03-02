@@ -1,5 +1,5 @@
 resource "aws_security_group" "sg_ucad" {
-  name        = "allow_ssh_http"
+  name        = "allow_ssh_http_unique_v2"
   description = "Autoriser SSH et HTTP"
 
   ingress {
@@ -45,7 +45,7 @@ output "ec2_public_ip" {
 }
 
 resource "aws_s3_bucket" "ucad_bucket" {
-  bucket = "S3-Visticot"
+  bucket = "visticot-bucket"
 }
 
 
@@ -71,6 +71,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "ucad_lifecycle" {
   rule {
     id     = "archive_and_delete_rule"
     status = "Enabled"
+    filter {}
 
     transition {
       days          = 90
